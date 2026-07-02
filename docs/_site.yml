@@ -1,0 +1,11 @@
+name: "RF cavities demonstration"
+navbar:
+  title: ">>"
+  left:
+    - text: "Demonstration activity"
+      href: index.html
+    - text: "RF cavities in conventional accelerators"
+      href: topic.html
+    - text: "About"
+      href: about.html
+output_dir: "."

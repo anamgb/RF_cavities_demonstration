@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+<meta name="date" content="2026-01-01" />
+
+<title>RF cavities outreach activity</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">>></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Demonstration activity</a>
+</li>
+<li>
+  <a href="topic.html">RF cavities in conventional accelerators</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">RF cavities outreach activity</h1>
+<h4 class="date">2026</h4>
+
+</div>
+
+<div id="TOC">
+<ul>
+<li><a href="#introduction" id="toc-introduction"><span
+class="toc-section-number">1</span> Introduction</a></li>
+<li><a href="#bill-of-materials" id="toc-bill-of-materials"><span
+class="toc-section-number">2</span> Bill of materials</a></li>
+<li><a href="#experimental-setup" id="toc-experimental-setup"><span
+class="toc-section-number">3</span> Experimental setup</a>
+<ul>
+<li><a href="#part-1-analog-lc-circuit"
+id="toc-part-1-analog-lc-circuit"><span
+class="toc-section-number">3.1</span> Part 1: analog LC circuit</a></li>
+<li><a href="#part-2-q-factor-measurement"
+id="toc-part-2-q-factor-measurement"><span
+class="toc-section-number">3.2</span> Part 2: Q-factor measurement</a>
+<ul>
+<li><a href="#predict-the-frequency"
+id="toc-predict-the-frequency"><span
+class="toc-section-number">3.2.1</span> Predict the frequency</a></li>
+<li><a href="#calibrate-the-vna" id="toc-calibrate-the-vna"><span
+class="toc-section-number">3.2.2</span> Calibrate the VNA</a></li>
+<li><a href="#connect" id="toc-connect"><span
+class="toc-section-number">3.2.3</span> Connect</a></li>
+<li><a href="#sweep-frequencies" id="toc-sweep-frequencies"><span
+class="toc-section-number">3.2.4</span> Sweep frequencies</a></li>
+<li><a href="#zoom-in" id="toc-zoom-in"><span
+class="toc-section-number">3.2.5</span> Zoom in</a></li>
+<li><a href="#read-f_0-and-the-bandwidth"
+id="toc-read-f_0-and-the-bandwidth"><span
+class="toc-section-number">3.2.6</span> Read <span
+class="math inline">\(f_0\)</span> and the bandwidth</a></li>
+<li><a href="#calculate-q" id="toc-calculate-q"><span
+class="toc-section-number">3.2.7</span> Calculate Q</a></li>
+<li><a href="#place-dielectrics-inside"
+id="toc-place-dielectrics-inside"><span
+class="toc-section-number">3.2.8</span> Place dielectrics
+inside</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="introduction" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Introduction</h1>
+<p>The aim of this project is to understand the Quality Factor
+(Q-factor), a single number that describes how well a resonant system
+stores energy. Formally, it compares the energy stored in a system to
+the energy lost in each cycle of oscillation: a high Q-factor means
+energy stays in the system for a long time, and little is lost, while a
+low Q-factor means energy is dissipated quickly. In a particle
+accelerator, the radio-frequency (RF) cavities that push particles up to
+high energies depend on a high Q-factor — the less energy a cavity
+wastes as heat, the more efficiently it can build up the strong
+oscillating electric fields used to accelerate the beam.</p>
+<p>To explore this idea, we work in two stages. First, we build an
+equivalent analog circuit (a parallel inductor–capacitor (LC) circuit)
+which resonates in the same way a cavity does and lets us see directly
+how inductance and capacitance set the resonant frequency. We then
+measure the Q-factor of a homemade cavity (a metal biscuit tin) using a
+Vector Network Analyzer (VNA).</p>
+<p>The activity is suitable for teachers, students, or just someone
+interested in particle accelerators.</p>
+</div>
+<div id="bill-of-materials" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Bill of materials</h1>
+<p>This is a suggested list of materials, but make this demonstration
+your own by exchanging for the materials you have available in your lab,
+house, or nearest store.</p>
+<ol style="list-style-type: decimal">
+<li>A metal biscuit tin with a lid (a round tin behaves like a classic
+“pillbox” cavity). Include other DIY cavities that you can think
+of!</li>
+<li>A drill or bradawl to make small holes for the probes or SMA
+connectors.</li>
+<li>Two coupling probes to use the transmission (S21) method.</li>
+<li>A Vector Network Analyzer (VNA) with a frequency range that covers
+your tin’s resonance.</li>
+<li>One or two coaxial cables with the right connectors</li>
+<li>A VNA calibration kit (Short / Open / Load, and Through for
+two-port).</li>
+<li>Dielectric materials that can fit inside the cativity to test.</li>
+</ol>
+<figure>
+<img src="img/materials.jpg" alt="Materials." style="width: 100%; height: auto;">
+<figcaption>
+Materials.
+</figcaption>
+</figure>
+</div>
+<div id="experimental-setup" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Experimental setup</h1>
+<div id="part-1-analog-lc-circuit" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Part 1: analog LC
+circuit</h2>
+<p>For this part prepare a circuit in a project board or electronics
+simulation software according to preference or availability.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2vCBWpJT0Bk?si=EtnpNeQEOrjrLBM5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+<p>See the tab <em>“RF cavities and Quality factor”</em> for the
+concepts of resonant frequency <span class="math inline">\(f_0\)</span>
+and relation with capacitance <span class="math inline">\(C\)</span> and
+inductance <span class="math inline">\(L\)</span>:</p>
+<p><span class="math display">\[f_0 = \frac{1}{2\pi \sqrt{L \cdot
+C}}\]</span></p>
+</div>
+<div id="part-2-q-factor-measurement" class="section level2"
+number="3.2">
+<h2><span class="header-section-number">3.2</span> Part 2: Q-factor
+measurement</h2>
+<div id="predict-the-frequency" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Predict the
+frequency</h3>
+<p>Measure your tin’s internal radius and height and use <span
+class="math inline">\(f_0\)</span> to estimate the relevant resonance.
+This tells you which band to sweep and whether your VNA can reach
+it.</p>
+</div>
+<div id="calibrate-the-vna" class="section level3" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Calibrate the
+VNA</h3>
+<p>According to your instrument’s procedure.</p>
+</div>
+<div id="connect" class="section level3" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Connect</h3>
+<p>Use two ports drive port 1 into one probe and measure the transmitted
+signal on port 2 (S21).</p>
+</div>
+<div id="sweep-frequencies" class="section level3" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> Sweep
+frequencies</h3>
+<p>Do a broad frequency sweep first and you will see several peaks
+corresponding to different resonant modes of the tin. Identify the one
+that matches your predicted frequency.</p>
+</div>
+<div id="zoom-in" class="section level3" number="3.2.5">
+<h3><span class="header-section-number">3.2.5</span> Zoom in</h3>
+<p>Narrow the sweep around that peak so you can read it precisely.</p>
+<figure>
+<img src="img/File_7.2.png" alt="Finding the peak and central frequency." style="width: 80%; height: auto;">
+<figcaption>
+Finding the peak and central frequency.
+</figcaption>
+</figure>
+</div>
+<div id="read-f_0-and-the-bandwidth" class="section level3"
+number="3.2.6">
+<h3><span class="header-section-number">3.2.6</span> Read <span
+class="math inline">\(f_0\)</span> and the bandwidth</h3>
+<p>Note the centre frequency <span class="math inline">\(f_0\)</span> at
+the top of the peak, then find the <span
+class="math inline">\(−3\)</span>dB points either side (<span
+class="math inline">\(3\)</span>dB down from the peak). The gap between
+them is <span class="math inline">\(\Delta f\)</span>.</p>
+<figure>
+<img src="img/File_7.3.png" alt="Finding the bandwidth." style="width: 80%; height: auto;">
+<figcaption>
+Finding the bandwidth.
+</figcaption>
+</figure>
+<p>For this specific VNA the bandwidth is measured in two steps, one
+<span class="math inline">\(\Delta_{left}\)</span> to the left of the
+peak and a second one to the right <span
+class="math inline">\(\Delta_{right}\)</span> for a total added <span
+class="math inline">\(\Delta f = |\Delta_{left}| +
+|\Delta_{rigth}|\)</span>.</p>
+</div>
+<div id="calculate-q" class="section level3" number="3.2.7">
+<h3><span class="header-section-number">3.2.7</span> Calculate Q</h3>
+<p>In this example:</p>
+<p><span class="math display">\[Q = \frac{f_0}{\Delta f} \approx
+\frac{1.89\times10^{9}} {(4.72+3.73)\times10^{6}} \approx
+223\]</span></p>
+<pre class="markdown"><code>For contrast, compare this with the Q you found for the LC circuit, and with the $~10^9 - 10^10$ values of real superconducting accelerator cavities.
+ </code></pre>
+</div>
+<div id="place-dielectrics-inside" class="section level3"
+number="3.2.8">
+<h3><span class="header-section-number">3.2.8</span> Place dielectrics
+inside</h3>
+<p>Place your selection of dielectrics one by one inside the cavity and
+observe the changes: shift in the resonant frequency <span
+class="math inline">\(f_0 \rightarrow f\)</span>, changes in <span
+class="math inline">\(Q\)</span>, attenuation, etc. Some examples here
+(for all, the trace of the original without dielectric is shown for
+comparison and the picture is taken before placing the metallic lid to
+close the cavity):</p>
+<ol style="list-style-type: decimal">
+<li>Small lid</li>
+</ol>
+<figure>
+<img src="img/small%20lid.jpg" alt="Small lid inside." style="width: 50%; height: auto;">
+</figure>
+<figure>
+<img src="img/File_7.5.png" alt="Small lid inside measurement." style="width: 80%; height: auto;">
+</figure>
+<p><span class="math display">\[Q = \frac{f_0}{\Delta f} \approx
+\frac{1.88\times10^{9}} {(7.24+6.05)\times10^{6}} \approx 141\]</span>
+2. Big lid</p>
+<figure>
+<img src="img/big%20lid.jpg" alt="Big lid inside." style="width: 50%; height: auto;">
+</figure>
+<figure>
+<img src="img/File_7.6.png" alt="Big lid inside measurement." style="width: 80%; height: auto;">
+</figure>
+<p><span class="math display">\[Q = \frac{f_0}{\Delta f} \approx
+\frac{1.88\times10^{9}} {(3.10+4.02)\times10^{6}} \approx 264\]</span>
+3. Glue</p>
+<figure>
+<img src="img/glue.jpg" alt="Glue inside." style="width: 50%; height: auto;">
+</figure>
+<figure>
+<img src="img/File_7.7.png" alt="Glue inside measurement." style="width: 80%; height: auto;">
+</figure>
+<p><span class="math display">\[Q = \frac{f_0}{\Delta f} \approx
+\frac{1.86\times10^{9}} {(3.31+4.62)\times10^{6}} \approx 234\]</span>
+4. Tape</p>
+<figure>
+<img src="img/tape.jpg" alt="Tape inside." style="width: 50%; height: auto;">
+</figure>
+<figure>
+<img src="img/File_7.8.png" alt="Tape inside measurement." style="width: 80%; height: auto;">
+</figure>
+<p><span class="math display">\[Q = \frac{f_0}{\Delta f} \approx
+\frac{1.85\times10^{9}} {(4.26+4.53)\times10^{6}} \approx 210\]</span>
+5. Biscuits (with packaging)</p>
+<figure>
+<img src="img/biscuits.jpg" alt="Biscuits inside." style="width: 50%; height: auto;">
+</figure>
+<figure>
+<img src="img/File_7.9.png" alt="Biscuits inside measurement." style="width: 80%; height: auto;">
+</figure>
+<p><span class="math display">\[Q = \frac{f_0}{\Delta f} \approx
+\frac{1.86\times10^{9}} {(6.50+6.64)\times10^{6}} \approx
+142\]</span></p>
+<pre class="markdown"><code>Experiment. Compare a well-seated lid vs. a slightly loose one, or a bare-metal tin vs. a painted one, see how/if the Q changes.</code></pre>
+<blockquote>
+<h3 id="licenses">Licenses</h3>
+<p><strong>Instructions, documentation:</strong> Creative Commons
+Attribution Share Alike 4.0</p>
+</blockquote>
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

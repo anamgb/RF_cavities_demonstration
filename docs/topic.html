@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+<meta name="date" content="2026-01-01" />
+
+<title>RF cavities and Quality factor</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">>></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Demonstration activity</a>
+</li>
+<li>
+  <a href="topic.html">RF cavities in conventional accelerators</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">RF cavities and Quality factor</h1>
+<h4 class="date">2026</h4>
+
+</div>
+
+<div id="TOC">
+<ul>
+<li><a href="#rf-cavities-in-conventional-accelerators"
+id="toc-rf-cavities-in-conventional-accelerators"><span
+class="toc-section-number">1</span> RF cavities in conventional
+accelerators</a></li>
+<li><a href="#the-lc-circuit-analogy"
+id="toc-the-lc-circuit-analogy"><span
+class="toc-section-number">2</span> The LC-circuit analogy</a></li>
+<li><a href="#why-a-metal-box-acts-like-an-rf-cavity"
+id="toc-why-a-metal-box-acts-like-an-rf-cavity"><span
+class="toc-section-number">3</span> Why a metal box acts like an RF
+cavity</a></li>
+<li><a href="#quality-factor-q-factor"
+id="toc-quality-factor-q-factor"><span
+class="toc-section-number">4</span> Quality factor (Q-factor)</a></li>
+<li><a href="#effect-of-adding-a-dielectric-material"
+id="toc-effect-of-adding-a-dielectric-material"><span
+class="toc-section-number">5</span> Effect of adding a dielectric
+material</a></li>
+<li><a href="#references-and-further-reading"
+id="toc-references-and-further-reading"><span
+class="toc-section-number">6</span> References and further
+reading</a></li>
+</ul>
+</div>
+
+<div id="rf-cavities-in-conventional-accelerators"
+class="section level1" number="1">
+<h1><span class="header-section-number">1</span> RF cavities in
+conventional accelerators</h1>
+<p>Conventional accelerators use metallic chambers that contain a
+localised, oscillating <span
+style="background-color: #c7f0da"><strong>radio-frequency
+(RF)</strong></span> electromagnetic field. These accelerating
+structures are called radio-frequency (RF) cavities. When charged
+particles (electrons, ions, etc.) are injected into the cavity with
+correct timing with the field, they experience an accelerating electric
+field along the beam axis and gain energy.</p>
+<p>The cavity is shaped so that it <span
+style="background-color: #c7f0da"><strong>resonates</strong></span>:
+electromagnetic waves build up in intensity inside it, producing a much
+stronger accelerating field than a single pass of the wave would give.
+This increases the energy a particle gains per metre of cavity, known as
+<span style="background-color: #c7f0da"><strong>accelerating
+gradient</strong></span>.</p>
+</div>
+<div id="the-lc-circuit-analogy" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> The LC-circuit
+analogy</h1>
+<p>An RF cavity behaves in many ways like an LC resonator circuit. In an
+LC circuit, the capacitor stores energy in its electric field and the
+inductor stores energy in its magnetic field. The capacitor (<span
+style="background-color: #c7f0da"><strong>capacitance</strong></span>
+<span class="math inline">\(C\)</span>) first charges fully, then
+discharges through the inductor (<span
+style="background-color: #c7f0da"><strong>inductance</strong></span>
+<span class="math inline">\(L\)</span>); the magnetic field in the
+inductor peaks and, as it collapses, it recharges the capacitor. Energy
+travels back and forth between electric and magnetic form, oscillating
+at the <span style="background-color: #c7f0da"><strong>resonant
+frequency</strong></span> <span class="math inline">\(f_0\)</span>:</p>
+<p><span class="math display">\[f_0 = \frac{1}{2\pi \sqrt{L \cdot
+C}}\]</span></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2_y_3_3V-so?si=bckszg6poE-mqsGV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+<p>In an RF cavity the same energy exchange happens, but between the
+electromagnetic field’s electric and magnetic components rather than
+between two separate components: the oscillating electric field
+generates a changing magnetic field, which in turn regenerates the
+electric field. For an accelerating mode, the electric field points
+along the beam axis. If an electron (or another charged particle) bunch
+arrives in phase with the field, it is pushed forward on every
+crossing.</p>
+</div>
+<div id="why-a-metal-box-acts-like-an-rf-cavity" class="section level1"
+number="3">
+<h1><span class="header-section-number">3</span> Why a metal box acts
+like an RF cavity</h1>
+<p>When an RF signal is fed through a probe into a hollow metallic box
+with conducting walls, electromagnetic waves travel back and forth and
+reflect off the walls. If a reflected wave returns in phase with the
+incoming wave, the two interfere constructively and the field grows
+stronger with every reflection. Only wavelengths that “fit” the box’s
+dimensions satisfy this condition and form <span
+style="background-color: #c7f0da"><strong>standing
+waves</strong></span>, so the box behaves as a closed electromagnetic
+resonator with a set of discrete resonant frequencies (its <span
+style="background-color: #c7f0da"><strong>modes</strong></span>).</p>
+</div>
+<div id="quality-factor-q-factor" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Quality factor
+(Q-factor)</h1>
+<p>The quality factor tells you how efficiently a cavity stores energy
+once an RF signal has been sent in. Think of a bell: one that rings for
+a long time after being struck has a <span
+style="background-color: #c7f0da"><strong>high Q</strong></span>; one
+whose sound dies away quickly has a <span
+style="background-color: #c7f0da"><strong>low Q</strong></span>.</p>
+<p>Q is measured, for example, from the sharpness of the resonance
+peak:</p>
+<p><span class="math display">\[Q = \frac{f_0}{\Delta f}\]</span></p>
+<p>Where <span class="math inline">\(\Delta f\)</span> is the <span
+class="math inline">\(−3 dB\)</span> (half-power) bandwidth (the width
+of the peak between the two points where the response has dropped to
+0.707 of its maximum).</p>
+<figure>
+<img src="img/q%20factor%20calculation.svg" alt="Q-factor calculation." style="width: 70%; height: auto;">
+<figcaption>
+<span class="math inline">\(Q\)</span>-factor calculation. From: <a
+href="https://www.electronics-notes.com/articles/basic_concepts/q-quality-factor/basics-tutorial-formula.php"
+class="uri">https://www.electronics-notes.com/articles/basic_concepts/q-quality-factor/basics-tutorial-formula.php</a>
+.
+</figcaption>
+</figure>
+<p>A tall, narrow peak means a high <span
+class="math inline">\(Q\)</span>. Changing the cavity’s shape changes
+which wavelengths it can hold, and therefore shifts its resonant
+frequency.</p>
+<figure>
+<img src="img/Q-factor%20comparisons.png" alt="Resonant behaviour of a cavity for different values of $Q$." style="width: 70%; height: auto;">
+<figcaption>
+Resonant behaviour of a cavity for different values of <span
+class="math inline">\(Q\)</span>. From: E. Jensen, “RF Cavity Design,”
+CERN Accelerator School (CAS). <a
+href="http://dx.doi.org/10.5170/CERN-2014-009.405"
+class="uri">http://dx.doi.org/10.5170/CERN-2014-009.405</a> .
+</figcaption>
+</figure>
+</div>
+<div id="effect-of-adding-a-dielectric-material" class="section level1"
+number="5">
+<h1><span class="header-section-number">5</span> Effect of adding a
+dielectric material</h1>
+<p>The resonant frequency depends on both the geometry and the speed of
+wave propagation inside. In an air or vacuum filled cavity, waves travel
+at essentially the speed of light, <span
+class="math inline">\(c\)</span>.</p>
+<p>Introducing a <span
+style="background-color: #c7f0da"><strong>dielectric</strong></span>
+raises the <span style="background-color: #c7f0da"><strong>relative
+permittivity</strong></span> <span
+class="math inline">\(\varepsilon_r\)</span>, which slows the waves
+down. For a cavity completely filled with a dielectric:</p>
+<p><span class="math display">\[f =
+\frac{f_0}{\sqrt{\varepsilon_r}}\]</span> A partial filling gives an
+intermediate shift that depends on where the dielectric is relative to
+the field.</p>
+</div>
+<div id="references-and-further-reading" class="section level1"
+number="6">
+<h1><span class="header-section-number">6</span> References and further
+reading</h1>
+<ol style="list-style-type: decimal">
+<li><p>CERN — “Accelerating: Radiofrequency cavities. <a
+href="https://home.cern/science/engineering/accelerating-radiofrequency-cavities/"
+class="uri">https://home.cern/science/engineering/accelerating-radiofrequency-cavities/</a></p></li>
+<li><p>E. Jensen, “RF Cavity Design,” CERN Accelerator School (CAS). <a
+href="http://dx.doi.org/10.5170/CERN-2014-009.405"
+class="uri">http://dx.doi.org/10.5170/CERN-2014-009.405</a></p></li>
+<li><p>E. Jensen, “Cavity basics,” CERN Accelerator School (CAS). <a
+href="https://cds.cern.ch/record/1416619/files/p259.pdf"
+class="uri">https://cds.cern.ch/record/1416619/files/p259.pdf</a></p></li>
+<li><p>K. Hübner, “Accelerators for high-energy physics,” CERN
+Accelerator School (CAS). <a
+href="https://cds.cern.ch/record/823752/files/p361.pdf"
+class="uri">https://cds.cern.ch/record/823752/files/p361.pdf</a></p></li>
+<li><p>CAS proceedings, “RF for Accelerators”. <a
+href="https://cds.cern.ch/record/1231364"
+class="uri">https://cds.cern.ch/record/1231364</a></p></li>
+</ol>
+<blockquote>
+<h3 id="licenses">Licenses</h3>
+<p><strong>Instructions, documentation:</strong> Creative Commons
+Attribution Share Alike 4.0</p>
+</blockquote>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,180 @@
+---
+title: "RF cavities outreach activity"
+date: "2026"
+output:
+  html_document: 
+    toc: true
+    toc-location: left
+    number_sections: true
+css: styles.css
+---
+
+
+
+
+
+
+
+# Introduction
+
+
+The aim of this project is to understand the Quality Factor (Q-factor), a single number that describes how well a resonant system stores energy. Formally, it compares the energy stored in a system to the energy lost in each cycle of oscillation: a high Q-factor means energy stays in the system for a long time, and little is lost, while a low Q-factor means energy is dissipated quickly. In a particle accelerator, the radio-frequency (RF) cavities that push particles up to high energies depend on a high Q-factor — the less energy a cavity wastes as heat, the more efficiently it can build up the strong oscillating electric fields used to accelerate the beam.
+
+To explore this idea, we work in two stages. First, we build an equivalent analog circuit (a parallel inductor–capacitor (LC) circuit) which resonates in the same way a cavity does and lets us see directly how inductance and capacitance set the resonant frequency. We then measure the Q-factor of a homemade cavity (a metal biscuit tin) using a Vector Network Analyzer (VNA). 
+
+
+The activity is suitable for teachers, students, or just someone interested in particle accelerators.
+
+
+
+# Bill of materials
+
+This is a suggested list of materials, but make this demonstration your own by exchanging for the materials you have available in your lab, house, or nearest store.
+
+1. A metal biscuit tin with a lid (a round tin behaves like a classic "pillbox" cavity). Include other DIY cavities that you can think of!
+2. A drill or bradawl to make small holes for the probes or SMA connectors.
+3. Two coupling probes to use the transmission (S21) method.
+4. A Vector Network Analyzer (VNA) with a frequency range that covers your tin's resonance.
+5. One or two coaxial cables with the right connectors
+6. A VNA calibration kit (Short / Open / Load, and Through for two-port).
+7. Dielectric materials that can fit inside the cativity to test.
+
+<figure>
+  <img src="img/materials.jpg" alt="Materials." style="width: 100%; height: auto;">
+  <figcaption>Materials.</figcaption>
+</figure>
+
+
+# Experimental setup
+
+## Part 1: analog LC circuit
+
+For this part prepare a circuit in a project board or electronics simulation software according to preference or availability.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2vCBWpJT0Bk?si=EtnpNeQEOrjrLBM5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+See the tab *"RF cavities and Quality factor"* for the concepts of resonant frequency $f_0$ and relation with capacitance $C$ and inductance $L$:
+
+$$f_0 = \frac{1}{2\pi \sqrt{L \cdot C}}$$
+
+## Part 2: Q-factor measurement
+
+
+### Predict the frequency
+
+Measure your tin's internal radius and height and use $f_0$ to estimate the relevant resonance. This tells you which band to sweep and whether your VNA can reach it.
+
+### Calibrate the VNA
+
+According to your instrument's procedure.
+
+### Connect
+
+Use two ports drive port 1 into one probe and measure the transmitted signal on port 2 (S21).
+
+### Sweep frequencies
+
+Do a broad frequency sweep first and you will see several peaks corresponding to different resonant modes of the tin. Identify the one that matches your predicted frequency.
+
+### Zoom in
+
+Narrow the sweep around that peak so you can read it precisely.
+
+<figure>
+  <img src="img/File_7.2.png" alt="Finding the peak and central frequency." style="width: 80%; height: auto;">
+  <figcaption>Finding the peak and central frequency.</figcaption>
+</figure>
+
+### Read $f_0$ and the bandwidth 
+
+Note the centre frequency $f_0$ at the top of the peak, then find the $−3$dB points either side ($3$dB down from the peak). The gap between them is $\Delta f$. 
+
+<figure>
+  <img src="img/File_7.3.png" alt="Finding the bandwidth." style="width: 80%; height: auto;">
+  <figcaption>Finding the bandwidth.</figcaption>
+</figure>
+
+For this specific VNA the bandwidth is measured in two steps, one $\Delta_{left}$ to the left of the peak and a second one to the right $\Delta_{right}$ for a total added $\Delta f = |\Delta_{left}| + |\Delta_{rigth}|$.
+
+### Calculate Q
+
+In this example:
+
+$$Q = \frac{f_0}{\Delta f} \approx \frac{1.89\times10^{9}} {(4.72+3.73)\times10^{6}} \approx 223$$
+
+```markdown
+For contrast, compare this with the Q you found for the LC circuit, and with the $~10^9 - 10^10$ values of real superconducting accelerator cavities.
+ 
+```
+
+### Place dielectrics inside
+
+Place your selection of dielectrics one by one inside the cavity and observe the changes: shift in the resonant frequency $f_0 \rightarrow f$, changes in $Q$, attenuation, etc. Some examples here (for all, the trace of the original without dielectric is shown for comparison and the picture is taken before placing the metallic lid to close the cavity):
+
+1. Small lid
+
+<figure>
+  <img src="img/small lid.jpg" alt="Small lid inside." style="width: 50%; height: auto;">
+</figure>
+
+<figure>
+  <img src="img/File_7.5.png" alt="Small lid inside measurement." style="width: 80%; height: auto;">
+</figure>
+
+$$Q = \frac{f_0}{\Delta f} \approx \frac{1.88\times10^{9}} {(7.24+6.05)\times10^{6}} \approx 141$$
+2. Big lid
+
+<figure>
+  <img src="img/big lid.jpg" alt="Big lid inside." style="width: 50%; height: auto;">
+</figure>
+
+<figure>
+  <img src="img/File_7.6.png" alt="Big lid inside measurement." style="width: 80%; height: auto;">
+</figure>
+
+$$Q = \frac{f_0}{\Delta f} \approx \frac{1.88\times10^{9}} {(3.10+4.02)\times10^{6}} \approx 264$$
+3. Glue
+
+<figure>
+  <img src="img/glue.jpg" alt="Glue inside." style="width: 50%; height: auto;">
+</figure>
+
+<figure>
+  <img src="img/File_7.7.png" alt="Glue inside measurement." style="width: 80%; height: auto;">
+</figure>
+
+$$Q = \frac{f_0}{\Delta f} \approx \frac{1.86\times10^{9}} {(3.31+4.62)\times10^{6}} \approx 234$$
+4. Tape
+
+<figure>
+  <img src="img/tape.jpg" alt="Tape inside." style="width: 50%; height: auto;">
+</figure>
+
+<figure>
+  <img src="img/File_7.8.png" alt="Tape inside measurement." style="width: 80%; height: auto;">
+</figure>
+
+$$Q = \frac{f_0}{\Delta f} \approx \frac{1.85\times10^{9}} {(4.26+4.53)\times10^{6}} \approx 210$$
+5. Biscuits (with packaging)
+
+<figure>
+  <img src="img/biscuits.jpg" alt="Biscuits inside." style="width: 50%; height: auto;">
+</figure>
+
+<figure>
+  <img src="img/File_7.9.png" alt="Biscuits inside measurement." style="width: 80%; height: auto;">
+</figure>
+
+$$Q = \frac{f_0}{\Delta f} \approx \frac{1.86\times10^{9}} {(6.50+6.64)\times10^{6}} \approx 142$$
+
+
+
+
+```markdown
+Experiment. Compare a well-seated lid vs. a slightly loose one, or a bare-metal tin vs. a painted one, see how/if the Q changes.
+```
+
+
+> ### Licenses
+>
+> **Instructions, documentation:** Creative Commons Attribution Share Alike 4.0

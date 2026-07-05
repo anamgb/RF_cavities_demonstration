@@ -284,30 +284,8 @@ id="toc-part-1-analog-lc-circuit"><span
 class="toc-section-number">3.1</span> Part 1: analog LC circuit</a></li>
 <li><a href="#part-2-q-factor-measurement"
 id="toc-part-2-q-factor-measurement"><span
-class="toc-section-number">3.2</span> Part 2: Q-factor measurement</a>
-<ul>
-<li><a href="#predict-the-frequency"
-id="toc-predict-the-frequency"><span
-class="toc-section-number">3.2.1</span> Predict the frequency</a></li>
-<li><a href="#calibrate-the-vna" id="toc-calibrate-the-vna"><span
-class="toc-section-number">3.2.2</span> Calibrate the VNA</a></li>
-<li><a href="#connect" id="toc-connect"><span
-class="toc-section-number">3.2.3</span> Connect</a></li>
-<li><a href="#sweep-frequencies" id="toc-sweep-frequencies"><span
-class="toc-section-number">3.2.4</span> Sweep frequencies</a></li>
-<li><a href="#zoom-in" id="toc-zoom-in"><span
-class="toc-section-number">3.2.5</span> Zoom in</a></li>
-<li><a href="#read-f_0-and-the-bandwidth"
-id="toc-read-f_0-and-the-bandwidth"><span
-class="toc-section-number">3.2.6</span> Read <span
-class="math inline">\(f_0\)</span> and the bandwidth</a></li>
-<li><a href="#calculate-q" id="toc-calculate-q"><span
-class="toc-section-number">3.2.7</span> Calculate Q</a></li>
-<li><a href="#place-dielectrics-inside"
-id="toc-place-dielectrics-inside"><span
-class="toc-section-number">3.2.8</span> Place dielectrics
-inside</a></li>
-</ul></li>
+class="toc-section-number">3.2</span> Part 2: Q-factor
+measurement</a></li>
 </ul></li>
 </ul>
 </div>
@@ -339,17 +317,15 @@ interested in particle accelerators.</p>
 your own by exchanging for the materials you have available in your lab,
 house, or nearest store.</p>
 <ol style="list-style-type: decimal">
-<li>A metal biscuit tin with a lid (a round tin behaves like a classic
-“pillbox” cavity). Include other DIY cavities that you can think
-of!</li>
-<li>A drill or bradawl to make small holes for the probes or SMA
+<li>DIY cavities: metal biscuit tin with a lid (a round tin behaves like
+a classic “pillbox” cavity). Include other DIY cavities that you can
+think of!</li>
+<li>Drill or bradawl to make holes for the probes or SMA
 connectors.</li>
-<li>Two coupling probes to use the transmission (S21) method.</li>
-<li>A Vector Network Analyzer (VNA) with a frequency range that covers
-your tin’s resonance.</li>
-<li>One or two coaxial cables with the right connectors</li>
-<li>A VNA calibration kit (Short / Open / Load, and Through for
-two-port).</li>
+<li>Two SMA connectors or coupling probes to use the transmission (S21)
+method.</li>
+<li>Vector network analyser (VNA) and coaxial cables in a frequency
+range that covers your tin’s resonance.</li>
 <li>Dielectric materials that can fit inside the cativity to test.</li>
 </ol>
 <figure>
@@ -379,33 +355,22 @@ C}}\]</span></p>
 number="3.2">
 <h2><span class="header-section-number">3.2</span> Part 2: Q-factor
 measurement</h2>
-<div id="predict-the-frequency" class="section level3" number="3.2.1">
-<h3><span class="header-section-number">3.2.1</span> Predict the
-frequency</h3>
+<ol style="list-style-type: decimal">
+<li>Prepare the cavities</li>
+</ol>
 <p>Measure your tin’s internal radius and height and use <span
 class="math inline">\(f_0\)</span> to estimate the relevant resonance.
 This tells you which band to sweep and whether your VNA can reach
 it.</p>
-</div>
-<div id="calibrate-the-vna" class="section level3" number="3.2.2">
-<h3><span class="header-section-number">3.2.2</span> Calibrate the
-VNA</h3>
-<p>According to your instrument’s procedure.</p>
-</div>
-<div id="connect" class="section level3" number="3.2.3">
-<h3><span class="header-section-number">3.2.3</span> Connect</h3>
-<p>Use two ports drive port 1 into one probe and measure the transmitted
-signal on port 2 (S21).</p>
-</div>
-<div id="sweep-frequencies" class="section level3" number="3.2.4">
-<h3><span class="header-section-number">3.2.4</span> Sweep
-frequencies</h3>
+<ol start="2" style="list-style-type: decimal">
+<li>Calibrate and connect</li>
+</ol>
+<p>Calibrate the VNA according to your instrument’s procedure. Use two
+ports drive port 1 into one probe and measure the transmitted signal on
+port 2 (S21).</p>
 <p>Do a broad frequency sweep first and you will see several peaks
 corresponding to different resonant modes of the tin. Identify the one
 that matches your predicted frequency.</p>
-</div>
-<div id="zoom-in" class="section level3" number="3.2.5">
-<h3><span class="header-section-number">3.2.5</span> Zoom in</h3>
 <p>Narrow the sweep around that peak so you can read it precisely.</p>
 <figure>
 <img src="img/File_7.2.png" alt="Finding the peak and central frequency." style="width: 80%; height: auto;">
@@ -413,11 +378,9 @@ that matches your predicted frequency.</p>
 Finding the peak and central frequency.
 </figcaption>
 </figure>
-</div>
-<div id="read-f_0-and-the-bandwidth" class="section level3"
-number="3.2.6">
-<h3><span class="header-section-number">3.2.6</span> Read <span
-class="math inline">\(f_0\)</span> and the bandwidth</h3>
+<ol start="3" style="list-style-type: decimal">
+<li>Read <span class="math inline">\(f_0\)</span> and the bandwidth</li>
+</ol>
 <p>Note the centre frequency <span class="math inline">\(f_0\)</span> at
 the top of the peak, then find the <span
 class="math inline">\(−3\)</span>dB points either side (<span
@@ -435,28 +398,26 @@ peak and a second one to the right <span
 class="math inline">\(\Delta_{right}\)</span> for a total added <span
 class="math inline">\(\Delta f = |\Delta_{left}| +
 |\Delta_{rigth}|\)</span>.</p>
-</div>
-<div id="calculate-q" class="section level3" number="3.2.7">
-<h3><span class="header-section-number">3.2.7</span> Calculate Q</h3>
+<ol start="4" style="list-style-type: decimal">
+<li>Calculate Q</li>
+</ol>
 <p>In this example:</p>
 <p><span class="math display">\[Q = \frac{f_0}{\Delta f} \approx
 \frac{1.89\times10^{9}} {(4.72+3.73)\times10^{6}} \approx
 223\]</span></p>
-<pre class="markdown"><code>For contrast, compare this with the Q you found for the LC circuit, and with the $~10^9 - 10^10$ values of real superconducting accelerator cavities.
+<pre class="markdown"><code>For contrast, compare this with the Q you found for the LC circuit, and with the 10^9 - 10^10 values of real superconducting accelerator cavities.
  </code></pre>
-</div>
-<div id="place-dielectrics-inside" class="section level3"
-number="3.2.8">
-<h3><span class="header-section-number">3.2.8</span> Place dielectrics
-inside</h3>
+<ol start="5" style="list-style-type: decimal">
+<li>Measure the change in <span class="math inline">\(f\)</span> by
+placing the dielectrics inside</li>
+</ol>
 <p>Place your selection of dielectrics one by one inside the cavity and
 observe the changes: shift in the resonant frequency <span
-class="math inline">\(f_0 \rightarrow f\)</span>, changes in <span
-class="math inline">\(Q\)</span>, attenuation, etc. Some examples here
-(for all, the trace of the original without dielectric is shown for
-comparison and the picture is taken before placing the metallic lid to
-close the cavity):</p>
-<ol style="list-style-type: decimal">
+class="math inline">\(f_0 \rightarrow f\)</span>, attenuation, etc. Some
+examples here (for all, the trace of the original without dielectric is
+shown for comparison and the picture is taken before placing the
+metallic lid to close the cavity):</p>
+<ol style="list-style-type: lower-alpha">
 <li>Small lid</li>
 </ol>
 <figure>
@@ -465,52 +426,46 @@ close the cavity):</p>
 <figure>
 <img src="img/File_7.5.png" alt="Small lid inside measurement." style="width: 80%; height: auto;">
 </figure>
-<p><span class="math display">\[Q = \frac{f_0}{\Delta f} \approx
-\frac{1.88\times10^{9}} {(7.24+6.05)\times10^{6}} \approx 141\]</span>
-2. Big lid</p>
+<p><span class="math display">\[ f_0 - f \approx - 14\text{
+MHz}\]</span> b. Big lid</p>
 <figure>
 <img src="img/big%20lid.jpg" alt="Big lid inside." style="width: 50%; height: auto;">
 </figure>
 <figure>
 <img src="img/File_7.6.png" alt="Big lid inside measurement." style="width: 80%; height: auto;">
 </figure>
-<p><span class="math display">\[Q = \frac{f_0}{\Delta f} \approx
-\frac{1.88\times10^{9}} {(3.10+4.02)\times10^{6}} \approx 264\]</span>
-3. Glue</p>
+<p><span class="math display">\[ f_0 - f \approx - 14\text{
+MHz}\]</span> c. Glue</p>
 <figure>
 <img src="img/glue.jpg" alt="Glue inside." style="width: 50%; height: auto;">
 </figure>
 <figure>
 <img src="img/File_7.7.png" alt="Glue inside measurement." style="width: 80%; height: auto;">
 </figure>
-<p><span class="math display">\[Q = \frac{f_0}{\Delta f} \approx
-\frac{1.86\times10^{9}} {(3.31+4.62)\times10^{6}} \approx 234\]</span>
-4. Tape</p>
+<p><span class="math display">\[ f_0 - f \approx - 38\text{
+MHz}\]</span> d. Tape</p>
 <figure>
 <img src="img/tape.jpg" alt="Tape inside." style="width: 50%; height: auto;">
 </figure>
 <figure>
 <img src="img/File_7.8.png" alt="Tape inside measurement." style="width: 80%; height: auto;">
 </figure>
-<p><span class="math display">\[Q = \frac{f_0}{\Delta f} \approx
-\frac{1.85\times10^{9}} {(4.26+4.53)\times10^{6}} \approx 210\]</span>
-5. Biscuits (with packaging)</p>
+<p><span class="math display">\[ f_0 - f \approx - 40\text{
+MHz}\]</span> e. Biscuits (with packaging)</p>
 <figure>
 <img src="img/biscuits.jpg" alt="Biscuits inside." style="width: 50%; height: auto;">
 </figure>
 <figure>
 <img src="img/File_7.9.png" alt="Biscuits inside measurement." style="width: 80%; height: auto;">
 </figure>
-<p><span class="math display">\[Q = \frac{f_0}{\Delta f} \approx
-\frac{1.86\times10^{9}} {(6.50+6.64)\times10^{6}} \approx
-142\]</span></p>
-<pre class="markdown"><code>Experiment. Compare a well-seated lid vs. a slightly loose one, or a bare-metal tin vs. a painted one, see how/if the Q changes.</code></pre>
+<p><span class="math display">\[ f_0 - f \approx - 38\text{
+MHz}\]</span></p>
+<pre class="markdown"><code>Experiment. Compare a well-seated lid vs. a slightly loose one, or a bare-metal tin vs. a painted one, see how/if the values change.</code></pre>
 <blockquote>
 <h3 id="licenses">Licenses</h3>
 <p><strong>Instructions, documentation:</strong> Creative Commons
 Attribution Share Alike 4.0</p>
 </blockquote>
-</div>
 </div>
 </div>
 
